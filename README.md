@@ -30,4 +30,5 @@ const sucrase = require('broccoli-sucrase');
 
 module.exports = class CustomSucrase extends sucrase.Plugin {
   // custom behavior
-}
+};
+```
