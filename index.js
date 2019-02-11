@@ -17,13 +17,19 @@ class Sucrase extends Plugin {
   }
 
   async processString(content, filePath) {
-    return (await sucrase.transform(content, {
+    const code = (await sucrase.transform(content, {
       ... {
         filePath,
         transforms: ['typescript', 'imports']
       },
-      ...this.options.surcase
+      ...this.options.sucrase
     })).code;
+
+    if (this.options.namedAmd) {
+      return wrapInNamedAmd(code, filePath.replace(/\.(?:js|ts)$/, ''));
+    } else {
+      return code;
+    }
   }
 
   // this is implemented for persistent cache key creation by broccoli-persistent-filter
@@ -32,8 +38,15 @@ class Sucrase extends Plugin {
   }
 }
 
-module.exports = function surcase(input, options) {
+function wrapInNamedAmd(cjs, name) {
+  return `define('${name}', ['exports', 'require'], function(exports, require) {
+        ;${cjs};
+      });`
+}
+
+module.exports = function sucrase(input, options) {
   return new Sucrase(input, options);
 };
 
 module.exports.Plugin = Sucrase;
+module.exports.wrapInNamedAmd= wrapInNamedAmd;

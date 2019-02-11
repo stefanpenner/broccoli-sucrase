@@ -18,6 +18,7 @@ This module aims to experiment using sucrase in the broccoli and ember-cli ecosy
 // Brocfile.js
 const sucrase = require('broccoli-sucrase');
 module.exports = sucrase(__dirname + '/src', {
+  namedAmd: true | false // optional, and defaults to false. If enabled, will produced named amd modules
   sucrase: { /* any option sucrase.transform supports */ }
 }); // where src/**/*.js contains ecmascript
 ```
