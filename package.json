@@ -1,0 +1,21 @@
+{
+  "name": "broccoli-sucrase",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "broccoli-persistent-filter": "^2.1.1",
+    "sucrase": "^3.9.5"
+  },
+  "devDependencies": {
+    "broccoli-test-helper": "^2.0.0",
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0"
+  },
+  "scripts": {
+    "test": "mocha test"
+  },
+  "keyworkds": [
+    "broccoli-plugin"
+  ]
+}
