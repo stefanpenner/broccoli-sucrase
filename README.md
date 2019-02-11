@@ -8,7 +8,7 @@ Broccoli Plugin for Sucrase (a babel alternative):
 * sucrase Repo: https://github.com/alangpierce/sucrase
 * sucrase Site: https://sucrase.io/
 
-This module aims to experiment using SWC in the broccoli and ember-cli ecosystems.
+This module aims to experiment using sucrase in the broccoli and ember-cli ecosystems.
 
 ## usage
 
