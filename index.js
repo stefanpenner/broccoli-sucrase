@@ -18,7 +18,7 @@ class Sucrase extends Plugin {
 
   async processString(content, filePath) {
     return (await sucrase.transform(content, {
-      ... {
+      ...{
         filePath,
         transforms: ['typescript', 'imports']
       },
